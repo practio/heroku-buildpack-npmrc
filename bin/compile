@@ -14,6 +14,6 @@ npm_token="${NPM_TOKEN:-$(cat $ENV_DIR/NPM_TOKEN)}"
 if [ "$npm_token" != "" ]; then
   echo "-----> Adding npm registry entry to .npmrc using environment variable NPM_TOKEN"
   echo "//registry.npmjs.org/:_authToken=${npm_token}" > "${BUILD_DIR}/.npmrc"
-  cat "${BUILD_DIR}/.npmrc"
+  cat "${BUILD_DIR}/.npmrc" > /dev/null
   exit 0
 fi
